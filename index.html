@@ -1,0 +1,766 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Noir & Brew — Artisan Coffee Experience</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Playfair+Display:ital,wght@1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Custom Cursor -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <button class="mobile-close" id="mobileClose">✕</button>
+      <a href="#about" onclick="closeMobile()">About</a>
+      <a href="#menu" onclick="closeMobile()">Menu</a>
+      <a href="#gallery" onclick="closeMobile()">Gallery</a>
+      <a href="#reservation" onclick="closeMobile()">Reserve</a>
+      <a href="#contact" onclick="closeMobile()">Contact</a>
+      <div class="mobile-socials">
+        <a
+          href="https://github.com/DarkStorm-RedTeam"
+          target="_blank"
+          rel="noopener"
+          title="GitHub"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"
+            />
+          </svg>
+        </a>
+        <a
+          href="https://www.linkedin.com/in/abdallah-mahrous-605ab22a9"
+          target="_blank"
+          rel="noopener"
+          title="LinkedIn"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+            />
+          </svg>
+        </a>
+        <a
+          href="https://www.instagram.com/abdallah_77kg/?hl=ar"
+          target="_blank"
+          rel="noopener"
+          title="Instagram"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+            />
+          </svg>
+        </a>
+        <a href="mailto:aljokerboda968@gmail.com" title="Email">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
+            />
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- ─── NAVBAR ─── -->
+    <nav id="navbar">
+      <a href="#" class="nav-logo">Noir<span>&</span>Brew</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#testimonials">Reviews</a></li>
+        <li><a href="#reservation" class="nav-cta">Reserve a Table</a></li>
+      </ul>
+      <div class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+    </nav>
+
+    <!-- ─── HERO ─── -->
+    <section class="hero" id="home">
+      <div class="hero-bg" id="heroBg"></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <div class="hero-tag">Artisan Coffee & Fine Dining</div>
+        <h1>Where Every<em>Sip Tells a Story</em></h1>
+        <p class="hero-sub">
+          An intimate sanctuary in Alexandria where heritage roasting meets
+          contemporary craft. Every cup is a ritual, every visit — a memory.
+        </p>
+        <div class="hero-btns">
+          <a href="#menu" class="btn-primary">Explore Our Menu</a>
+          <a href="#reservation" class="btn-outline">Reserve a Table</a>
+        </div>
+      </div>
+      <a href="#about" class="hero-scroll">
+        <div class="scroll-line"></div>
+        Scroll to discover
+      </a>
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-num">12+</div>
+          <div class="stat-label">Specialty Blends</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">98%</div>
+          <div class="stat-label">Happy Guests</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">8</div>
+          <div class="stat-label">Years of Craft</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── ABOUT ─── -->
+    <section class="about" id="about">
+      <div class="about-grid">
+        <div class="about-img-wrap reveal">
+          <img
+            src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?w=900&q=80"
+            alt="Cafe interior"
+            loading="lazy"
+          />
+          <div class="about-img-badge">
+            <span class="yr">8</span>
+            <span class="since">Years</span>
+          </div>
+        </div>
+        <div class="about-text">
+          <div class="section-label reveal">Our Story</div>
+          <h2 class="section-title reveal reveal-delay-1">
+            Crafted with<em>Passion</em>
+          </h2>
+          <p class="reveal reveal-delay-2">
+            Born from a deep love for coffee culture, Noir & Brew opened its
+            doors in Alexandria in 2016. We source our beans directly from
+            single-origin farms across Ethiopia, Colombia, and Yemen —
+            partnering with farmers who share our obsession for quality.
+          </p>
+          <p class="reveal reveal-delay-3">
+            Our baristas aren't just coffee makers — they're storytellers. Each
+            cup is calibrated with precision, served with warmth, and designed
+            to transport you somewhere extraordinary.
+          </p>
+          <div class="about-features">
+            <div class="about-feature reveal reveal-delay-1">
+              <div class="feature-icon">☕</div>
+              <div class="feature-text">
+                <strong>Single Origin</strong>
+                <span>Direct trade beans</span>
+              </div>
+            </div>
+            <div class="about-feature reveal reveal-delay-2">
+              <div class="feature-icon">🌿</div>
+              <div class="feature-text">
+                <strong>Organic Only</strong>
+                <span>No artificial additives</span>
+              </div>
+            </div>
+            <div class="about-feature reveal reveal-delay-3">
+              <div class="feature-icon">🏆</div>
+              <div class="feature-text">
+                <strong>Award Winning</strong>
+                <span>Best Cafe 2023</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── MENU ─── -->
+    <section class="menu-section" id="menu">
+      <div class="menu-header reveal">
+        <div class="section-label">What We Serve</div>
+        <h2 class="section-title">A Menu Built on<em>Obsession</em></h2>
+        <div class="menu-tabs">
+          <button class="menu-tab active" onclick="switchTab(this, 'coffee')">
+            Coffee
+          </button>
+          <button class="menu-tab" onclick="switchTab(this, 'food')">
+            Food
+          </button>
+          <button class="menu-tab" onclick="switchTab(this, 'cold')">
+            Cold Drinks
+          </button>
+        </div>
+      </div>
+
+      <div class="menu-panel active" id="tab-coffee">
+        <div class="menu-grid">
+          <div class="menu-item reveal">
+            <img
+              class="menu-item-img"
+              src="https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?w=600&q=80"
+              alt="Espresso"
+              loading="lazy"
+            />
+            <div class="menu-item-tag">Signature</div>
+            <div class="menu-item-name">Black Noir Espresso</div>
+            <div class="menu-item-desc">
+              Double ristretto pulled from our house Ethiopian blend. Intense,
+              sweet, and impossibly smooth.
+            </div>
+            <div class="menu-item-price">EGP 65</div>
+          </div>
+          <div class="menu-item reveal reveal-delay-1">
+            <img
+              class="menu-item-img"
+              src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=600&q=80"
+              alt="Latte"
+              loading="lazy"
+            />
+            <div class="menu-item-tag">Best Seller</div>
+            <div class="menu-item-name">Golden Caramel Flat White</div>
+            <div class="menu-item-desc">
+              Micro-foam whole milk with a double shot, finished with house
+              salted caramel drizzle.
+            </div>
+            <div class="menu-item-price">EGP 85</div>
+          </div>
+          <div class="menu-item reveal reveal-delay-2">
+            <img
+              class="menu-item-img"
+              src="https://images.unsplash.com/photo-1485808191679-5f86510bd9d4?w=600&q=80"
+              alt="Pour Over"
+              loading="lazy"
+            />
+            <div class="menu-item-tag">Specialty</div>
+            <div class="menu-item-name">Yemeni Pour Over</div>
+            <div class="menu-item-desc">
+              Single-origin Haraaz beans brewed slow in our Chemex. Floral,
+              wine-like, and ancient.
+            </div>
+            <div class="menu-item-price">EGP 110</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-panel" id="tab-food">
+        <div class="menu-grid">
+          <div class="menu-item reveal">
+            <img
+              class="menu-item-img"
+              src="https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?w=600&q=80"
+              alt="Croissant"
+              loading="lazy"
+            />
+            <div class="menu-item-tag">Morning</div>
+            <div class="menu-item-name">Almond Butter Croissant</div>
+            <div class="menu-item-desc">
+              Hand-laminated pastry filled with rich almond cream. Baked fresh
+              every morning.
+            </div>
+            <div class="menu-item-price">EGP 75</div>
+          </div>
+          <div class="menu-item reveal reveal-delay-1">
+            <img
+              class="menu-item-img"
+              src="https://images.unsplash.com/photo-1484723091739-30990bf78a8e?w=600&q=80"
+              alt="Avocado Toast"
+              loading="lazy"
+            />
+            <div class="menu-item-tag">All Day</div>
+            <div class="menu-item-name">Smashed Avocado Toast</div>
+            <div class="menu-item-desc">
+              Sourdough with chunky avocado, poached egg, dukkah, and a squeeze
+              of preserved lemon.
+            </div>
+            <div class="menu-item-price">EGP 125</div>
+          </div>
+          <div class="menu-item reveal reveal-delay-2">
+            <img
+              class="menu-item-img"
+              src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=600&q=80"
+              alt="Pancakes"
+              loading="lazy"
+            />
+            <div class="menu-item-tag">Brunch</div>
+            <div class="menu-item-name">Ricotta Cloud Pancakes</div>
+            <div class="menu-item-desc">
+              Japanese-inspired fluffy stack with seasonal berries, whipped
+              cream, and maple syrup.
+            </div>
+            <div class="menu-item-price">EGP 145</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-panel" id="tab-cold">
+        <div class="menu-grid">
+          <div class="menu-item reveal">
+            <img
+              class="menu-item-img"
+              src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&q=80"
+              alt="Cold Brew"
+              loading="lazy"
+            />
+            <div class="menu-item-tag">Summer Fave</div>
+            <div class="menu-item-name">Midnight Cold Brew</div>
+            <div class="menu-item-desc">
+              18-hour steep Colombian cold brew. Silky, caffeinated, and
+              dangerously refreshing.
+            </div>
+            <div class="menu-item-price">EGP 95</div>
+          </div>
+          <div class="menu-item reveal reveal-delay-1">
+            <img
+              class="menu-item-img"
+              src="https://images.unsplash.com/photo-1546549032-9571cd6b27df?w=600&q=80"
+              alt="Matcha"
+              loading="lazy"
+            />
+            <div class="menu-item-tag">Trending</div>
+            <div class="menu-item-name">Iced Ceremonial Matcha</div>
+            <div class="menu-item-desc">
+              Grade A Japanese matcha shaken with oat milk over ice. Vivid,
+              earthy, and beautiful.
+            </div>
+            <div class="menu-item-price">EGP 105</div>
+          </div>
+          <div class="menu-item reveal reveal-delay-2">
+            <img
+              class="menu-item-img"
+              src="https://images.unsplash.com/photo-1497534446932-c925b458314e?w=600&q=80"
+              alt="Smoothie"
+              loading="lazy"
+            />
+            <div class="menu-item-tag">Fresh</div>
+            <div class="menu-item-name">Sunrise Mango Lassi</div>
+            <div class="menu-item-desc">
+              Egyptian Alphonso mango, greek yogurt, cardamom, and a pinch of
+              saffron.
+            </div>
+            <div class="menu-item-price">EGP 90</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── PARALLAX QUOTE ─── -->
+    <div class="experience" id="exp">
+      <div class="exp-bg" id="expBg"></div>
+      <div class="exp-overlay"></div>
+      <div class="exp-content">
+        <p class="exp-quote">
+          "The perfect cup isn't just brewed — <span>it's composed.</span>"
+        </p>
+        <p class="exp-author">— The Noir & Brew Philosophy</p>
+      </div>
+    </div>
+
+    <!-- ─── GALLERY ─── -->
+    <section class="gallery" id="gallery">
+      <div class="gallery-header">
+        <div class="section-label reveal">Our Space</div>
+        <h2 class="section-title reveal reveal-delay-1">
+          The Atmosphere<em>You'll Love</em>
+        </h2>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img
+            src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=900&q=80"
+            alt="Cafe Atmosphere"
+            loading="lazy"
+          />
+          <div class="gallery-item-overlay">
+            <span class="gallery-item-label">The Main Hall</span>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://images.unsplash.com/photo-1453614512568-c4024d13c247?w=600&q=80"
+            alt="Coffee Brewing"
+            loading="lazy"
+          />
+          <div class="gallery-item-overlay">
+            <span class="gallery-item-label">The Bar</span>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?w=600&q=80"
+            alt="Cozy Corner"
+            loading="lazy"
+          />
+          <div class="gallery-item-overlay">
+            <span class="gallery-item-label">Cozy Corners</span>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://images.unsplash.com/photo-1566417713940-fe7c737a9ef2?w=900&q=80"
+            alt="Terrace"
+            loading="lazy"
+          />
+          <div class="gallery-item-overlay">
+            <span class="gallery-item-label">Outdoor Terrace</span>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=600&q=80"
+            alt="Coffee Art"
+            loading="lazy"
+          />
+          <div class="gallery-item-overlay">
+            <span class="gallery-item-label">Latte Art</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── AMBIANCE ─── -->
+    <div class="ambiance">
+      <div class="ambiance-inner">
+        <div class="amb-card reveal">
+          <div class="amb-icon">🎵</div>
+          <div class="amb-title">Curated Sounds</div>
+          <div class="amb-desc">
+            Live jazz on weekends and handpicked playlists that set the perfect
+            mood for every hour.
+          </div>
+        </div>
+        <div class="amb-card reveal reveal-delay-1">
+          <div class="amb-icon">📶</div>
+          <div class="amb-title">Fast WiFi</div>
+          <div class="amb-desc">
+            Blazing-fast fibre connection throughout. Work, create, or simply
+            unwind.
+          </div>
+        </div>
+        <div class="amb-card reveal reveal-delay-2">
+          <div class="amb-icon">🌿</div>
+          <div class="amb-title">Organic Sourcing</div>
+          <div class="amb-desc">
+            From bean to plate — everything we serve is ethically and
+            organically sourced.
+          </div>
+        </div>
+        <div class="amb-card reveal reveal-delay-3">
+          <div class="amb-icon">🌙</div>
+          <div class="amb-title">Open Late</div>
+          <div class="amb-desc">
+            We stay open until midnight so you never have to rush. The night is
+            young.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── TESTIMONIALS ─── -->
+    <section class="testimonials" id="testimonials">
+      <div class="testimonials-header">
+        <div class="section-label reveal">Word on the Street</div>
+        <h2 class="section-title reveal reveal-delay-1">
+          What Our Guests<em>Say</em>
+        </h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testi-card reveal">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">
+            "Noir & Brew doesn't just serve coffee — it engineers an experience.
+            The Black Noir Espresso alone is worth a trip from Cairo."
+          </p>
+          <div class="testi-author">
+            <img
+              class="testi-avatar"
+              src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80"
+              alt="Layla Hassan"
+            />
+            <div>
+              <div class="testi-name">Layla Hassan</div>
+              <div class="testi-role">Food Blogger, Cairo</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card reveal reveal-delay-1">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">
+            "The ambiance is unmatched. Dark wood, warm lighting, smooth jazz —
+            I come here to write and I always leave inspired."
+          </p>
+          <div class="testi-author">
+            <img
+              class="testi-avatar"
+              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80"
+              alt="Omar Khalil"
+            />
+            <div>
+              <div class="testi-name">Omar Khalil</div>
+              <div class="testi-role">Novelist, Alexandria</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card reveal reveal-delay-2">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">
+            "As a specialty coffee professional, I rarely compliment cafes — but
+            the Yemeni Pour Over here genuinely surprised me. Exceptional."
+          </p>
+          <div class="testi-author">
+            <img
+              class="testi-avatar"
+              src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80"
+              alt="Sara El-Masry"
+            />
+            <div>
+              <div class="testi-name">Sara El-Masry</div>
+              <div class="testi-role">Coffee Consultant</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── RESERVATION ─── -->
+    <section class="reservation" id="reservation">
+      <div class="reservation-inner">
+        <div class="res-info">
+          <div class="section-label reveal">Reserve Your Spot</div>
+          <h2 class="section-title reveal reveal-delay-1">
+            Come, Sit,<em>Stay a While</em>
+          </h2>
+          <p class="reveal reveal-delay-2">
+            Whether it's an intimate morning or a late-night gathering, we'll
+            make sure your table is ready. Reservations are recommended on
+            weekends.
+          </p>
+          <div class="res-contact reveal reveal-delay-3" id="contact">
+            <div class="contact-item">
+              <div class="contact-icon">📍</div>
+              <div class="contact-text">
+                <strong>Location</strong>
+                <span>Smoha Elnasr Street, Alexandria, Egypt</span>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">📞</div>
+              <div class="contact-text">
+                <strong>Phone</strong>
+                <a
+                  href="tel:01271337073"
+                  style="color: var(--gold); text-decoration: none"
+                  >01271337073</a
+                >
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">✉️</div>
+              <div class="contact-text">
+                <strong>Email</strong>
+                <a
+                  href="https://mail.google.com/mail/u/0/#inbox"
+                  target="_blank"
+                  style="color: var(--gold); text-decoration: none"
+                  >aljokerboda968@gmail.com</a
+                >
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">🕐</div>
+              <div class="contact-text">
+                <strong>Hours</strong>
+                <span>Daily — 8:00 AM to 12:00 AM</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="res-form reveal reveal-delay-1">
+          <div class="form-row">
+            <div class="form-group">
+              <label>First Name</label>
+              <input type="text" placeholder="Ahmed" />
+            </div>
+            <div class="form-group">
+              <label>Last Name</label>
+              <input type="text" placeholder="Mostafa" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Date</label>
+              <input type="date" />
+            </div>
+            <div class="form-group">
+              <label>Time</label>
+              <input type="time" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Guests</label>
+              <select>
+                <option>1 Guest</option>
+                <option>2 Guests</option>
+                <option selected>3–4 Guests</option>
+                <option>5–6 Guests</option>
+                <option>7+ Guests</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" placeholder="you@email.com" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Special Requests</label>
+            <textarea
+              placeholder="Birthday, dietary needs, allergies..."
+            ></textarea>
+          </div>
+          <button class="form-submit" onclick="handleReserve()">
+            Confirm Reservation
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── FOOTER ─── -->
+    <footer>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="logo">Noir<span>&</span>Brew</span>
+          <p>
+            An artisan coffee sanctuary in Alexandria, Egypt. Where heritage
+            meets craft, and every cup is a conversation.
+          </p>
+          <div class="footer-socials">
+            <a
+              href="https://github.com/DarkStorm-RedTeam"
+              class="social-link"
+              title="GitHub"
+              target="_blank"
+              rel="noopener"
+            >
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/abdallah-mahrous-605ab22a9"
+              class="social-link"
+              title="LinkedIn"
+              target="_blank"
+              rel="noopener"
+            >
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://www.instagram.com/abdallah_77kg/?hl=ar"
+              class="social-link"
+              title="Instagram"
+              target="_blank"
+              rel="noopener"
+            >
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://mail.google.com/mail/u/0/#inbox"
+              class="social-link"
+              title="Email"
+              target="_blank"
+              rel="noopener"
+            >
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#testimonials">Reviews</a></li>
+            <li><a href="#reservation">Reserve</a></li>
+          </ul>
+        </div>
+        <div class="footer-col footer-hours">
+          <h4>Opening Hours</h4>
+          <p>
+            Mon — Fri<br /><strong style="color: var(--cream)"
+              >8:00 AM — 12:00 AM</strong
+            ><br /><br />
+            Sat — Sun<br /><strong style="color: var(--cream)"
+              >8:00 AM — 1:00 AM</strong
+            >
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="tel:01271337073">01271337073</a></li>
+            <li><a href="mailto:aljokerboda968@gmail.com">Email Us</a></li>
+            <li><a href="#">Smoha Elnasr Street/a></li>
+            <li><a href="#">Alexandria, Egypt</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Noir & Brew. All rights reserved.</p>
+        <div class="dev-credit">
+          Designed & Developed by
+          <a
+            href="https://www.linkedin.com/in/abdallah-mahrous-605ab22a9"
+            target="_blank"
+            rel="noopener"
+            >Abdallah Mohamed</a
+          >
+          · Alexandria, Egypt
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
